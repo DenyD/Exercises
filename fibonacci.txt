@@ -6,3 +6,4 @@ function Fib(N){
 }
 console.log(Fib(3));
 console.log(Fib(4));
+
