@@ -1,5 +1,6 @@
 var arrays = [[1, 2, 3], [4, 5], [6]];
 
-console.log(arrays.reduce(function(old, current) {
+var flatt = arrays.reduce(function(old, current) {
   return old.concat(current);
-}, []));
+});
+console.log(flatt);
