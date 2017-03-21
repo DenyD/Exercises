@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+
+    
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div ng-app="myApp" ng-controller="myCtrl">
+        Name: <input ng-model="firstName">
+        pay for all {{ count * price }} $.</p>
+        <h2 ng-click="changeName()">{{firstName}} bought:</h2>
+        </div>
+        <p>Click on name to run changename function</p>
+        <ul>
+            <li ng-repeat="x in items">
+                {{ x.name + ',' + ' cost: ' + x.cost + '$ - ' + quantity }}
+            </li>
+        </ul>
+    </div>
+    <p>Change the name inside the input field, and you will see the name in the header changes accordingly.</p>
+
+    <script src="myApp.js"></script>
+    <script src="myCtrl.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+    
+    <div ng-app="myApp" ng-controller="namesCtrl">
+        <p>Looping with objects by country:</p>
+        <ul>
+        <li ng-repeat="x in names | orderBy:'country'">
+            {{ x.name + ', ' + x.country }}
+        </li>
+        </ul>
+        <p>Looping with objects by names:</p>
+        <ul>
+        <li ng-repeat="x in names | orderBy:'name'">
+            {{ x.name + ', ' + x.country }}
+        </li>
+        </ul>
+        <p>Looping with objects by names contains the letter "i":</p>
+        <ul>
+        <li ng-repeat="x in names | orderBy:'name' | filter:'i'">
+            {{ x.name }}
+        </li>
+        </ul>
+    </div>
+
+    <script src="myApp.js"></script>
+    <script src="namesCtrl.js"></script>
+
+</body>
+
+</html>
