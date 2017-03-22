@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+    
+    <div ng-app="myApp" ng-controller="namesCtrl">
+        <p>List with names&counties contains set letters:</p>        
+        <p><input type="text" ng-model="test"></p>
+        <ul>
+            <li ng-repeat="x in names | filter : test">
+                {{ x.name + ', ' + x.country }}
+            </li>
+        </ul>
+
+        <table border="2" width="100%">
+            <tr>
+                <th ng-click="orderByMe('name')">Name</th>
+                <th ng-click="orderByMe('country')">Country</th>
+            </tr>
+            <tr ng-repeat="x in names | orderBy:myOrderBy">
+                <td>{{x.name}}</td>
+                <td>{{x.country}}</td>
+            </tr>
+        </table>
+        <p>Filter called myFormat changes name to uppercase even number of the letter</p>
+
+        <ul ng-app="myApp" ng-controller="namesCtrl">
+            <li ng-repeat="x in names">
+                {{x.name | myFormat}}
+            </li>
+        </ul>
+    </div>
+
+    <script src="myApp.js"></script>
+    <script src="namesCtrl.js"></script>
+
+</body>
+
+</html>

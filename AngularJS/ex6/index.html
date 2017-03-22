@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<style>
+input.ng-invalid {
+    background-color:pink;
+}
+input.ng-valid {
+    background-color:deepskyblue;
+}
+</style>
+<body>
+
+  <div ng-app="myList" ng-cloak ng-controller="myCtrl" class="w3-card-2 w3-blue w3-margin" style="max-width:400px;">
+    <header class="w3-container w3-center w3-purple w3-padding-16">
+      <h3>My List</h3>
+    </header>
+    <ul class="w3-ul">
+      <li ng-repeat="x in products" class="w3-padding-16">{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right w3-large w3-margin-right">×</span></li>
+    </ul>
+    <div class="w3-container w3-light-blue w3-padding-16">
+      <div class="w3-row w3-margin-top">
+        <div class="w3-col s9">
+          <input placeholder="Add items here" ng-model="addMe" class="w3-input w3-border-2 w3-padding" required>
+        </div>
+        <div class="w3-col s2 w3-margin-left">
+          <button ng-click="addItem()" class="w3-btn w3-padding w3-green">Add</button>
+        </div>
+      </div>
+      <p class="w3-padding-left w3-text-red">{{errortext}}</p>
+    </div>
+  </div>
+  <script src="myApp.js"></script>
+  <script src="myCtrl.js"></script>
+
+</body>
+
+</html>
