@@ -1,0 +1,41 @@
+.contact-me-modal .contact-form label {
+    display: block;
+}
+
+.contact-me-modal .contact-form .row {
+    margin-bottom: 15px;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffb;
+    transition: background 1.5s;
+}
+
+body.modal-opened::after {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+    position: fixed;
+    z-index: -1;
+    background: #fff;
+    width: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 30px;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.modal-opened .modal {
+    opacity: 1;
+    z-index: 999;
+}

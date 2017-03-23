@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="w3-container">   
+      <div class="w3-center w3-row">          
+        <img class="fis" src="img/fis.png" alt="FIS logo">
+        <img class="spons" src="img/spons.png" alt="sponsorzy">
+        <h2>SKI Jumping World Cup</h2>
+      </div>   
+    </div>
+  </header>
+  <section>  
+    <div ng-app="aplikacja" ng-controller="tabela" class="container">
+      <div class="w3-row">
+        <div class="w3-center">
+          <div class="w3-blue">
+          <h3>Klasyfikacja {{skoczkowie.length}} najlepszych skoczków narciarskich</h3>
+          </div>
+          <div class="w3-row w3-col s3 w3-padding w3-border w3-light-grey">Szukaj:
+          </div>
+          <div class="w3-col s9">
+              <input placeholder="Search here.." type="text" class="w3-input w3-border" ng-model="szukaj">
+          </div>
+          <br>
+          <table class="w3-table">
+            <thead>
+              <tr>
+                  <th ng-repeat="naglowek in [
+                  'Miejsce' , 'Imie' , 'Kraj' , 'Punkty'
+                  ]">
+                  {{naglowek}}               
+                  </th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="skoczek in skoczkowie | filter: szukaj">
+                <td>{{skoczek.Rank}}</td>
+                <td>{{skoczek.Athlete}}</td>
+                <td>{{skoczek.Country}}</td>
+                <td>{{skoczek.Points}}</td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="w3-center">
+    <p>Created by Daniel, Copywright &copy; 2017</p>
+  </footer>
+  <script>
+  
+   /*JSON dodany tutaj, ponieważ nie wczytuje z pliku lokalnie*/
+   
+    var app = angular.module( "aplikacja" , [] );
+
+    app.controller( "tabela" , [ "$scope" , "$filter", function( $scope ) {
+      $scope.skoczkowie = [
+{
+"Rank": 1,
+"Athlete": "KRAFT  Stefan",
+"Country": "AUT",
+"Points": 1465
+},
+{
+"Rank": 2,
+"Athlete": "STOCH  Kamil",
+"Country": "POL",
+"Points": 1434
+},
+{
+"Rank": 3,
+"Athlete": "TANDE  Daniel Andre",
+"Country": "NOR",
+"Points": 1181
+},
+{
+"Rank": 4,
+"Athlete": "WELLINGER  Andreas",
+"Country": "GER",
+"Points": 1001
+},
+{
+"Rank": 5,
+"Athlete": "KOT  Maciej",
+"Country": "POL",
+"Points": 945
+},
+{
+"Rank": 6,
+"Athlete": "PREVC  Domen",
+"Country": "SLO",
+"Points": 938
+},
+{
+"Rank": 7,
+"Athlete": "HAYBOECK  Michael",
+"Country": "AUT",
+"Points": 752
+},
+{
+"Rank": 8,
+"Athlete": "EISENBICHLER  Markus",
+"Country": "GER",
+"Points": 697
+},
+{
+"Rank": 9,
+"Athlete": "FETTNER  Manuel",
+"Country": "AUT",
+"Points": 683
+},
+{
+"Rank": 10,
+"Athlete": "PREVC  Peter",
+"Country": "SLO",
+"Points": 650
+},
+{
+"Rank": 11,
+"Athlete": "ZYLA  Piotr",
+"Country": "POL",
+"Points": 574
+},
+{
+"Rank": 12,
+"Athlete": "STJERNEN  Andreas",
+"Country": "NOR",
+"Points": 553
+},
+{
+"Rank": 13,
+"Athlete": "FREITAG  Richard",
+"Country": "GER",
+"Points": 486
+},
+{
+"Rank": 14,
+"Athlete": "DESCOMBES SEVOIE  Vincent",
+"Country": "FRA",
+"Points": 381
+},
+{
+"Rank": 15,
+"Athlete": "KLIMOV  Evgeniy",
+"Country": "RUS",
+"Points": 368
+},
+{
+"Rank": 16,
+"Athlete": "JOHANSSON  Robert",
+"Country": "NOR",
+"Points": 356
+},
+{
+"Rank": 17,
+"Athlete": "GEIGER  Karl",
+"Country": "GER",
+"Points": 346
+},
+{
+"Rank": 18,
+"Athlete": "KUBACKI  Dawid",
+"Country": "POL",
+"Points": 321
+},
+{
+"Rank": 19,
+"Athlete": "FREUND  Severin",
+"Country": "GER",
+"Points": 309
+},
+{
+"Rank": 20,
+"Athlete": "KOFLER  Andreas",
+"Country": "AUT",
+"Points": 307
+},
+{
+"Rank": 21,
+"Athlete": "LEYHE  Stephan",
+"Country": "GER",
+"Points": 306
+},
+{
+"Rank": 22,
+"Athlete": "KASAI  Noriaki",
+"Country": "JPN",
+"Points": 291
+},
+{
+"Rank": 23,
+"Athlete": "TEPES  Jurij",
+"Country": "SLO",
+"Points": 289
+},
+{
+"Rank": 24,
+"Athlete": "ITO  Daiki",
+"Country": "JPN",
+"Points": 261
+},
+{
+"Rank": 25,
+"Athlete": "KOUDELKA  Roman",
+"Country": "CZE",
+"Points": 198
+}
+];
+      }]);
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</body>
+
+</html>
