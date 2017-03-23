@@ -3,52 +3,59 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="style.css">
 </head>
-<style>
-  table, th , td  {
-    margin-top: 50px;
-    border: 2px solid grey;
-    padding: 5px;
-  }
-  table tr:nth-child(odd) {
-    background-color: #99ccff;
-  }
-</style>
-<body ng-app="aplikacja">
-  <div class="w3-container" ng-controller="tabela">
-    <div class="w3-row">
-      <div class="w3-center">
-        <h1>Klasyfikacja {{skoczkowie.length}} skoczków narciarskich</h1>
-        <div class="w3-row w3-col s2 w3-padding w3-border w3-light-grey">Szukaj:
+<body>
+  <header>
+    <div class="w3-container">   
+      <div class="w3-center w3-row">          
+        <img class="fis" src="img/fis.png" alt="FIS logo">
+        <img class="spons" src="img/spons.png" alt="sponsorzy">
+        <h2>SKI Jumping World Cup</h2>
+      </div>   
+    </div>
+  </header>
+  <section>  
+    <div ng-app="aplikacja" ng-controller="tabela" class="container">
+      <div class="w3-row">
+        <div class="w3-center">
+          <div class="w3-blue">
+          <h3>Klasyfikacja {{skoczkowie.length}} najlepszych skoczków narciarskich</h3>
+          </div>
+          <div class="w3-row w3-col s3 w3-padding w3-border w3-light-grey">Szukaj:
+          </div>
+          <div class="w3-col s9">
+              <input placeholder="Search here.." type="text" class="w3-input w3-border" ng-model="szukaj">
+          </div>
+          <br>
+          <table class="w3-table">
+            <thead>
+              <tr>
+                  <th ng-repeat="naglowek in [
+                  'Miejsce' , 'Imie' , 'Kraj' , 'Punkty'
+                  ]">
+                  {{naglowek}}               
+                  </th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="skoczek in skoczkowie | filter: szukaj">
+                <td>{{skoczek.Rank}}</td>
+                <td>{{skoczek.Athlete}}</td>
+                <td>{{skoczek.Country}}</td>
+                <td>{{skoczek.Points}}</td>
+              </tr>
+            </tbody>
+          </table>
+          
         </div>
-        <div class="w3-col s10">
-        <input placeholder="Search here.." type="text" class="w3-input w3-border" ng-model="szukaj">
-        </div>
-        <br>
-        <table class="w3-table">
-          <thead>
-            <tr>
-              <th ng-repeat="naglowek in [
-                'Miejsce' , 'Imie' , 'Narodowosc' , 'Punkty'
-              ]">
-              {{naglowek}}               
-              </th> 
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="skoczek in skoczkowie | filter: szukaj">
-              <td>{{skoczek.Rank}}</td>
-              <td>{{skoczek.Athlete}}</td>
-              <td>{{skoczek.Country}}</td>
-              <td>{{skoczek.Points}}</td>
-            </tr>
-          </tbody>
-        </table>
-        
       </div>
     </div>
-  </div>
+  </section>
   <script>
+  
+   /*JSON dodany tutaj, ponieważ nie wczytuje z pliku lokalnie*/
+   
     var app = angular.module( "aplikacja" , [] );
 
     app.controller( "tabela" , [ "$scope" , "$filter", function( $scope ) {
@@ -202,294 +209,6 @@
 "Athlete": "KOUDELKA  Roman",
 "Country": "CZE",
 "Points": 198
-},
-{
-"Rank": 26,
-"Athlete": "FORFANG  Johann Andre",
-"Country": "NOR",
-"Points": 168
-},
-{
-"Rank": 27,
-"Athlete": "FANNEMEL  Anders",
-"Country": "NOR",
-"Points": 158
-},
-{
-"Rank": 28,
-"Athlete": "DAMJAN  Jernej",
-"Country": "SLO",
-"Points": 133
-},
-{
-"Rank": 29,
-"Athlete": "AMMANN  Simon",
-"Country": "SUI",
-"Points": 125
-},
-{
-"Rank": 30,
-"Athlete": "TAKEUCHI  Taku",
-"Country": "JPN",
-"Points": 122
-},
-{
-"Rank": 31,
-"Athlete": "ZIOBRO  Jan",
-"Country": "POL",
-"Points": 119
-},
-{
-"Rank": 32,
-"Athlete": "HULA  Stefan",
-"Country": "POL",
-"Points": 110
-},
-{
-"Rank": 33,
-"Athlete": "SCHLIERENZAUER  Gregor",
-"Country": "AUT",
-"Points": 94
-},
-{
-"Rank": 34,
-"Athlete": "LANISEK  Anze",
-"Country": "SLO",
-"Points": 92
-},
-{
-"Rank": 35,
-"Athlete": "WANK  Andreas",
-"Country": "GER",
-"Points": 90
-},
-{
-"Rank": 36,
-"Athlete": "STURSA  Vojtech",
-"Country": "CZE",
-"Points": 88
-},
-{
-"Rank": 37,
-"Athlete": "SCHIFFNER  Markus",
-"Country": "AUT",
-"Points": 81
-},
-{
-"Rank": 38,
-"Athlete": "JANDA  Jakub",
-"Country": "CZE",
-"Points": 80
-},
-{
-"Rank": 39,
-"Athlete": "KORNILOV  Denis",
-"Country": "RUS",
-"Points": 77
-},
-{
-"Rank": 40,
-"Athlete": "PREVC  Cene",
-"Country": "SLO",
-"Points": 67
-},
-{
-"Rank": 41,
-"Athlete": "BOYD-CLOWES  Mackenzie",
-"Country": "CAN",
-"Points": 52
-},
-{
-"Rank": 42,
-"Athlete": "AIGNER  Clemens",
-"Country": "AUT",
-"Points": 50
-},
-{
-"Rank": 42,
-"Athlete": "BICKNER  Kevin",
-"Country": "USA",
-"Points": 50
-},
-{
-"Rank": 42,
-"Athlete": "GRANERUD  Halvor Egner",
-"Country": "NOR",
-"Points": 50
-},
-{
-"Rank": 45,
-"Athlete": "POLASEK  Viktor",
-"Country": "CZE",
-"Points": 31
-},
-{
-"Rank": 45,
-"Athlete": "SEMENIC  Anze",
-"Country": "SLO",
-"Points": 31
-},
-{
-"Rank": 47,
-"Athlete": "COLLOREDO  Sebastian",
-"Country": "ITA",
-"Points": 30
-},
-{
-"Rank": 48,
-"Athlete": "HLAVA  Lukas",
-"Country": "CZE",
-"Points": 26
-},
-{
-"Rank": 49,
-"Athlete": "MAEAETTAE  Jarkko",
-"Country": "FIN",
-"Points": 24
-},
-{
-"Rank": 49,
-"Athlete": "AHONEN  Janne",
-"Country": "FIN",
-"Points": 24
-},
-{
-"Rank": 51,
-"Athlete": "AUNE  Joakim",
-"Country": "NOR",
-"Points": 23
-},
-{
-"Rank": 52,
-"Athlete": "KOBAYASHI  Junshiro",
-"Country": "JPN",
-"Points": 20
-},
-{
-"Rank": 53,
-"Athlete": "VANCURA  Tomas",
-"Country": "CZE",
-"Points": 18
-},
-{
-"Rank": 54,
-"Athlete": "ROMASHOV  Alexey",
-"Country": "RUS",
-"Points": 17
-},
-{
-"Rank": 55,
-"Athlete": "HILDE  Tom",
-"Country": "NOR",
-"Points": 16
-},
-{
-"Rank": 55,
-"Athlete": "LARINTO  Ville",
-"Country": "FIN",
-"Points": 16
-},
-{
-"Rank": 57,
-"Athlete": "VASSILIEV  Dimitry",
-"Country": "RUS",
-"Points": 15
-},
-{
-"Rank": 58,
-"Athlete": "BRESADOLA  Davide",
-"Country": "ITA",
-"Points": 14
-},
-{
-"Rank": 58,
-"Athlete": "HUBER  Stefan",
-"Country": "AUT",
-"Points": 14
-},
-{
-"Rank": 60,
-"Athlete": "SIEGEL  David",
-"Country": "GER",
-"Points": 12
-},
-{
-"Rank": 61,
-"Athlete": "ZNISZCZOL  Aleksander",
-"Country": "POL",
-"Points": 9
-},
-{
-"Rank": 61,
-"Athlete": "SAKUYAMA  Kento",
-"Country": "JPN",
-"Points": 9
-},
-{
-"Rank": 63,
-"Athlete": "DESCHWANDEN  Gregor",
-"Country": "SUI",
-"Points": 8
-},
-{
-"Rank": 64,
-"Athlete": "INSAM  Alex",
-"Country": "ITA",
-"Points": 6
-},
-{
-"Rank": 65,
-"Athlete": "ALTENBURGER  Florian",
-"Country": "AUT",
-"Points": 4
-},
-{
-"Rank": 65,
-"Athlete": "MURANKA  Klemens",
-"Country": "POL",
-"Points": 4
-},
-{
-"Rank": 67,
-"Athlete": "PAVLOVCIC  Bor",
-"Country": "SLO",
-"Points": 3
-},
-{
-"Rank": 67,
-"Athlete": "GLASDER  Michael",
-"Country": "USA",
-"Points": 3
-},
-{
-"Rank": 69,
-"Athlete": "TOLLINGER  Elias",
-"Country": "AUT",
-"Points": 2
-},
-{
-"Rank": 69,
-"Athlete": "NURMSALU  Kaarel",
-"Country": "EST",
-"Points": 2
-},
-{
-"Rank": 71,
-"Athlete": "KARLEN  Gabriel",
-"Country": "SUI",
-"Points": 1
-},
-{
-"Rank": 71,
-"Athlete": "IWASA  Yuken",
-"Country": "JPN",
-"Points": 1
-},
-{
-"Rank": 71,
-"Athlete": "HUBER  Daniel",
-"Country": "AUT",
-"Points": 1
 }
 ];
       }]);
