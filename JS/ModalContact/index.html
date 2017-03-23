@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="vieport" content="width=device-width">
+        <title>JS App</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Witam ;)</h1>
+        <p>Przykład otwierania i zamykania modala</p>
+        <button class="contact-me-btn">Contact Me</button>
+        <div class="modal contact-me-modal">
+            <button class="close-btn">Close</button>
+            <h2>Contact Me</h2>
+            <form class="contact-form">
+                <div class="row">
+                    <label for="firstname">Name:</label><input type="text" id="firstname">
+                </div>
+                <div class="row">
+                    <label for="lastname">Lastname:</label><input type="text" id="lastname">
+                </div>
+                <div class="row">
+                    <label for="email">Email:</label><input type="text" id="email">
+                </div>
+                <div class="row">
+                    <label for="msg">Name:</label><textarea id="msg"></textarea>
+                </div>
+                <div class="row">
+                    <button type="submit">Send Msg</button>
+                </div>
+            </form>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
